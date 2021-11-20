@@ -11,7 +11,7 @@ namespace YoutubeVideos.Pages
         private readonly IQuickDBS db;
 
         [BindProperty]
-        public Video? Model { get; set; }
+        public Video Model { get; set; }
 
         public string errorMessage { get;set; } = string.Empty;
 
