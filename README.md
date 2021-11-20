@@ -6,3 +6,6 @@ It is a simple web app showing the list of YouTube video links on the page. Buil
 - Add new videos
 - Update videos
 - Delete videos
+
+## Demo
+Check out the final outcome of this project that is hosted on Linux (Ubuntu 18.04) with nginx at [Demo](https://vl.proinfocus.com)
