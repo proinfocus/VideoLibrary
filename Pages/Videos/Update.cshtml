@@ -1,0 +1,48 @@
+@page "{id:long}"
+@model VideoUpdateModel
+
+@{
+    ViewData["Title"] = "Update Video";
+}
+
+<div>
+    <h1 class="mb-4">Videos</h1>
+    <h5 class="mb-4 fw-normal">Update</h5>
+
+    <form method="post">
+        <div class="row">
+            <div style="color: red" asp-validation-summary="All"></div>
+        </div>
+        <div class="form-group row">
+                        <div class="form-group col-lg-4">
+                <label class="my-2" asp-for="Model.Category">Category</label>
+                <input type="text" autofocus class="form-control" asp-for="Model.Category">
+            </div>
+            <div class="form-group col-lg-4">
+                <label class="my-2" asp-for="Model.ChannelName">Channel Name</label>
+                <input type="text" class="form-control" asp-for="Model.ChannelName">
+            </div>
+            <div class="form-group col-lg-4">
+                <label class="my-2" asp-for="Model.Title">Title</label>
+                <input type="text" class="form-control" asp-for="Model.Title">
+            </div>
+            <div class="form-group col-lg-4">
+                <label class="my-2" asp-for="Model.Link">Link</label>
+                <input type="text" class="form-control" asp-for="Model.Link">
+            </div>
+            <div class="form-group col-lg-4">
+                <label class="my-2" asp-for="Model.AddedOn">Added On</label>
+                <input type="date" class="form-control" asp-for="Model.AddedOn">
+            </div>
+
+        </div>
+        <div class="mt-4">
+            <p class="text-danger">@Model.errorMessage</p>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a type="button" class="btn btn-outline-primary" href="/">Cancel</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
