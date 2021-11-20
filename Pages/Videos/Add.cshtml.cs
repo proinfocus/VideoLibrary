@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
-using YoutubeVideos.Models;
+using VideoLibrary.Models;
 using QuickDBS;
 
-namespace YoutubeVideos.Pages
+namespace VideoLibrary.Pages
 {
     public class VideoAddModel : PageModel
     {
@@ -30,7 +30,7 @@ namespace YoutubeVideos.Pages
             
             try {
                 db.Create<Video>(Model);
-                return Page();
+                return RedirectToPage("/Videos/Add");
             }
             catch (Exception ex)
             {

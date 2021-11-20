@@ -1,5 +1,5 @@
 using QuickDBS;
-using YoutubeVideos.Models;
+using VideoLibrary.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

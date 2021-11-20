@@ -1,4 +1,4 @@
-namespace YoutubeVideos.Models
+namespace VideoLibrary.Models
 {
     public class Video {
         public int Id { get; set; }
