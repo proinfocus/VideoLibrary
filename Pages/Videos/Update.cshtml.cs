@@ -23,7 +23,7 @@ namespace YoutubeVideos.Pages
         public IActionResult OnGet(long Id) {
             Model = db.GetById<Video>(Id);
             if (Model == null)
-                return RedirectToPage("/Videos");
+                return RedirectToPage("/");
             else
                 return Page();
         }
@@ -38,7 +38,7 @@ namespace YoutubeVideos.Pages
                     Model.Id = (int)Id;       
                     var result = db.UpdateById<Video>(Model);
                     if (result)
-                        return RedirectToPage("/Videos/Index");
+                        return RedirectToPage("/Index");
                     else
                     {
                         errorMessage += "Updation failed. Please try again.";

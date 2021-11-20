@@ -11,7 +11,7 @@ namespace YoutubeVideos.Pages
         private readonly IQuickDBS db;
 
         [BindProperty]
-        public Video Model { get; set; }
+        public Video Model { get; set; } = new Video { AddedOn = DateTime.Now };
 
         public string errorMessage { get;set; } = string.Empty;
 
@@ -30,7 +30,7 @@ namespace YoutubeVideos.Pages
             
             try {
                 db.Create<Video>(Model);
-                return RedirectToAction("Get");
+                return Page();
             }
             catch (Exception ex)
             {
