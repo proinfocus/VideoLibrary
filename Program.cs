@@ -1,34 +1,36 @@
 using QuickDBS;
 using VideoLibrary.Models;
 
-var builder = WebApplication.CreateBuilder(args);
+public class Program {
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+    public static bool FetchNew = true;
+    public static IList<Video> CachedVideos;
 
-var db = new SQLite("videos.db3");
-builder.Services.AddSingleton<IQuickDBS>(db);
-// db.CreateTable<Video>();
+    static void Main(string[] args) {
+        var builder = WebApplication.CreateBuilder(args);
+        // Add services to the container.
+        builder.Services.AddRazorPages();
 
-//RazorUI.BuildFor<Video>(true);
+        var db = new SQLite("videos.db3");
+        builder.Services.AddSingleton<IQuickDBS>(db);
+        // db.CreateTable<Video>();
+        // RazorUI.BuildFor<Video>(true);
 
-var app = builder.Build();
+        var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
+        // app.UseAuthorization();
+        app.MapRazorPages();
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();

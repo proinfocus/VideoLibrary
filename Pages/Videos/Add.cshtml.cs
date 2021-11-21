@@ -30,6 +30,7 @@ namespace VideoLibrary.Pages
             
             try {
                 db.Create<Video>(Model);
+                Program.FetchNew = true;
                 return RedirectToPage("/Videos/Add");
             }
             catch (Exception ex)

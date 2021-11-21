@@ -38,7 +38,10 @@ namespace VideoLibrary.Pages
                     Model.Id = (int)Id;       
                     var result = db.UpdateById<Video>(Model);
                     if (result)
+                    {
+                        Program.FetchNew = true;
                         return RedirectToPage("/Index");
+                    }
                     else
                     {
                         errorMessage += "Updation failed. Please try again.";
